@@ -1,0 +1,21 @@
+{
+    "files.associations": {
+        "queue": "cpp",
+        "list": "cpp",
+        "tuple": "cpp",
+        "algorithm": "cpp",
+        "numeric": "cpp",
+        "string": "cpp",
+        "ostream": "cpp",
+        "iostream": "cpp",
+    },
+    "terminal.integrated.profiles.osx": {
+        "zsh": {
+            "path": "/bin/zsh",
+            "args": [
+                "-l",
+                "-i"
+            ]
+        }
+    }
+}
