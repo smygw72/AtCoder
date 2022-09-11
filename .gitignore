@@ -11,8 +11,6 @@
 *.sln.docstates
 *.sln
 .DS_store
-*.in
-*.out
 *.vcxproj
 *.vcxproj.filters
 */main.dSYM/*

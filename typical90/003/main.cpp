@@ -1,5 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
-
 #include <iostream>
 #include <string>
 #include <vector>
@@ -7,6 +5,7 @@
 #include <stack>
 #include <queue>
 #include <map>
+#include <array>
 #include <tuple>
 #include <algorithm>
 #include <numeric>
@@ -25,17 +24,17 @@ const int mod = 1e9 + 7;
 const long double pi = 3.141592653589793238462643383279502884197;
 const long double eps = 1e-7;
 
+void print_vector(vi vec)
+{
+    REP(i, vec.size())
+    {
+        cout << vec[i] << " ";
+    }
+}
+
 int main()
 {
     string s;
     cin >> s;
-    if ((s[0] == s[1] && s[1] == s[2]) || (s[1] == s[2] && s[2] == s[3]))
-    {
-        cout << "Yes";
-    }
-    else
-        cout << "No";
-
-    system("pause");
     return 0;
 }
