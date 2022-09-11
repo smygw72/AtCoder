@@ -15,7 +15,9 @@
 *.out
 *.vcxproj
 *.vcxproj.filters
-*/main.dSYM
+*/main.dSYM/*
+Info.plist
+main
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
