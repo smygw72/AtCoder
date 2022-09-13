@@ -19,22 +19,44 @@ using namespace std;
 using ll = long long;
 using pii = pair<int, int>;
 using vi = vector<int>;
+using si = stack<int>;
+using qi = queue<int>;
+using li = list<int>;
 
-const int mod = 1e9 + 7;
-const long double pi = 3.141592653589793238462643383279502884197;
-const long double eps = 1e-7;
+static const int INF = (1 << 21);
+static const long double PI = 3.141592653589793238462643383279502884197;
+static const long double EPS = 1e-7;
+static const int MAX = 2000;
 
-void print_vector(vi vec)
-{
-    REP(i, vec.size())
-    {
-        cout << vec[i] << " ";
-    }
-}
+int A[MAX][MAX];
+int row_sum[MAX] = {0};
+int col_sum[MAX] = {0};
 
 int main()
 {
-    string s;
-    cin >> s;
+    int H, W;
+    cin >> H >> W;
+    REP(i, H)
+    {
+        REP(j, W)
+        {
+            cin >> A[i][j];
+            row_sum[i] += A[i][j];
+            col_sum[j] += A[i][j];
+        }
+    }
+
+    REP(i, H)
+    {
+        REP(j, W)
+        {
+            int B = row_sum[i] + col_sum[j] - A[i][j];
+            cout << B;
+            if (j != (W - 1))
+                cout << " ";
+        }
+        cout << endl;
+    }
+
     return 0;
 }
