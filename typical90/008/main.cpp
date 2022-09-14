@@ -1,40 +1,44 @@
 #include <iostream>
-#include <string>
-#include <vector>
-#include <list>
-#include <stack>
-#include <queue>
-#include <map>
-#include <array>
-#include <tuple>
-#include <algorithm>
-#include <numeric>
-#include <math.h>
-
-#define REPS(i, a, b) for (int i = (a); i < (b); i++)
-#define REP(i, n) for (int i = 0; i < (n); i++)
-
 using namespace std;
 
-using ll = long long;
-using pii = pair<int, int>;
-using vi = vector<int>;
-
-const int mod = 1e9 + 7;
-const long double pi = 3.141592653589793238462643383279502884197;
-const long double eps = 1e-7;
-
-void print_vector(vi vec)
-{
-    REP(i, vec.size())
-    {
-        cout << vec[i] << " ";
-    }
-}
+string S;
+long long mod = 1000000007;
+long long dp[100009][8];
 
 int main()
 {
-    string s;
-    cin >> s;
+    // Step #1. Input
+    int N;
+    cin >> N;
+    cin >> S;
+
+    // Step #2. Dynamic Programming (DP)
+    dp[0][0] = 1;
+    for (int i = 0; i < (int)S.size(); i++)
+    {
+        for (int j = 0; j <= 7; j++)
+        {
+            dp[i + 1][j] += dp[i][j];
+            if (S[i] == 'a' && j == 0)
+                dp[i + 1][j + 1] += dp[i][j];
+            if (S[i] == 't' && j == 1)
+                dp[i + 1][j + 1] += dp[i][j];
+            if (S[i] == 'c' && j == 2)
+                dp[i + 1][j + 1] += dp[i][j];
+            if (S[i] == 'o' && j == 3)
+                dp[i + 1][j + 1] += dp[i][j];
+            if (S[i] == 'd' && j == 4)
+                dp[i + 1][j + 1] += dp[i][j];
+            if (S[i] == 'e' && j == 5)
+                dp[i + 1][j + 1] += dp[i][j];
+            if (S[i] == 'r' && j == 6)
+                dp[i + 1][j + 1] += dp[i][j];
+        }
+        for (int j = 0; j <= 7; j++)
+            dp[i + 1][j] %= mod;
+    }
+
+    // Step #3. Output the answer
+    cout << dp[S.size()][7] << endl;
     return 0;
 }

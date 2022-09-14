@@ -46,6 +46,7 @@ int N, Q;
 
 int search(const ll student_rate, ll &student_score, int &left)
 {
+    ll left_score, right_score;
     REPS(i, left, N)
     {
         ll left_score = abs(student_rate - A[i]);
