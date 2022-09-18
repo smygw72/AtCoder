@@ -19,22 +19,64 @@ using namespace std;
 using ll = long long;
 using pii = pair<int, int>;
 using vi = vector<int>;
+using si = stack<int>;
+using qi = queue<int>;
+using li = list<int>;
 
-const int mod = 1e9 + 7;
-const long double pi = 3.141592653589793238462643383279502884197;
-const long double eps = 1e-7;
+static const int INF = (1 << 21);
+static const long double PI = 3.141592653589793238462643383279502884197;
+static const long double EPS = 1e-7;
+static const int MAX = 100000;
 
-void print_vector(vi vec)
-{
-    REP(i, vec.size())
-    {
-        cout << vec[i] << " ";
-    }
-}
+ll sum[MAX + 1][2];
 
 int main()
 {
-    string s;
-    cin >> s;
+    int N;
+    cin >> N;
+
+    // init
+    sum[0][0] = 0;
+    sum[0][1] = 0;
+
+    int C, P;
+    REP(i, N)
+    {
+        cin >> C >> P;
+        REP(j, 2)
+        {
+            sum[i + 1][j] = sum[i][j];
+        }
+        sum[i + 1][C - 1] += P;
+    }
+
+    // REP(i, N + 1)
+    // {
+    //     cout << sum[i][0] << " ";
+    // }
+    // cout << endl;
+    // REP(i, N + 1)
+    // {
+    //     cout << sum[i][1] << " ";
+    // }
+    // cout << endl;
+
+    int Q, L, R;
+    cin >> Q;
+    ll output[MAX][2];
+    REP(i, Q)
+    {
+        cin >> L >> R;
+        REP(j, 2)
+        {
+            output[i][j] = (sum[R][j] - sum[L - 1][j]);
+        }
+    }
+
+    REP(i, Q)
+    {
+        cout << output[i][0] << " " << output[i][1] << endl;
+    }
+
     return 0;
 }
